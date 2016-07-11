@@ -1,0 +1,15 @@
+<div class="container">
+<div class="text-center">
+  
+  <h1>Stock Tracker Test</h1>
+  <h5>Follow Stocks</h5>
+  <div class="col-md-4 col-md-offset-4">
+    
+  <button class="btn btn-primary btn-block" ui-sref='stockSearch'>Search for a Stock</button>
+  <button class="btn btn-success btn-block" ui-sref='login' ng-if='!isAuthenticated()'>Log In</button>
+  <button class="btn btn-block" ui-sref='register' ng-if='!isAuthenticated()'>Register</button>
+  <button class="btn btn-danger btn-block" ng-click='logout()' ng-if='isAuthenticated()'>Logout</button>
+    
+  </div>
+</div>
+</div>

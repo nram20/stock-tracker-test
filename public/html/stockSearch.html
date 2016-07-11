@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+        <form ng-submit='getQuote()'>
+            <div class="form-group">
+              <label>Symbol</label>
+              <input type="text" class="form-control" placeholder="Enter Stock Symbol" ng-model="symbol">
+            </div>
+            <button class="btn btn-primary btn-block"><span ng-class='{"fa fa-refresh fa-spin fa-fw": isLoading}'></span><span ng-if='!isLoading'>Search</span></button>
+        </form>
+    </div>
+    <div ng-if='quote'>
+        <table class="table">
+            <thead>
+                <th>Symbol</th>
+                <th>Last Price</th>
+                <th>Low</th>
+                <th>High</th>
+                <th>Change</th>
+                <th>Change YTD</th>
+                <th>Open</th>
+                <th ng-if='isAuthenticated()'>Add to Portfolio</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{quote.Symbol}}</td>
+                    <td>{{quote.LastPrice}}</td>
+                    <td>{{quote.Low}}</td>
+                    <td>{{quote.High}}</td>
+                    <td 
+                      >
+                        {{quote.ChangePercent | number : 2}}%
+                    </td>
+                    <td 
+                      >
+                        {{quote.ChangePercentYTD | number : 2}}%
+                    </td>
+                    <td>{{quote.Open}}</td>
+                    <td>
+                    <div class="button btn btn-success btn-xs" ng-if='isAuthenticated()' ng-click='addToPortfolio()'>+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
